@@ -1,0 +1,16 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLCATEGORY
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Kategori Sayfası</h2>
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+</form>

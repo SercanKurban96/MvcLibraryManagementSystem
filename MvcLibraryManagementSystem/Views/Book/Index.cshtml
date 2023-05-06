@@ -1,0 +1,56 @@
+﻿@using MvcLibraryManagementSystem.Models.Entity
+@model List<TBLBOOK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>Kitaplar</h2>
+
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Kitap Adını Girin: &nbsp;</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+<table class="table table-striped">
+    <tr style="background-color:rgb(23, 195, 153)">
+        @*<th>ID</th>*@
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategorisi</th>
+        <th>Basım Yılı</th>
+        <th>Yayınevi</th>
+        <th>Sayfa</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>@item.BookID</td>*@
+            <td>@item.BookName</td>
+            <td>@item.TBLAUTHOR.AuthorName @item.TBLAUTHOR.AuthorSurname</td>
+            <td>@item.TBLCATEGORY.CategoryName</td>
+            <td>@item.PublicationYear</td>
+            <td>@item.PublishingHouse</td>
+            <td>@item.Page</td>
+            @*<td>@item.Status</td>*@
+            <td>
+                @if (item.Status == true)
+                {
+                    <span style="color:green">Aktif</span>
+                }
+                else
+                {
+                    <span style="color:red">Pasif</span>
+                }
+            </td>
+            <td><a href="/Book/BookDelete/@item.BookID/" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Book/BookBring/@item.BookID/" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Book/BookAdd/" class="btn btn-primary">Yeni Kitap Ekle</a>

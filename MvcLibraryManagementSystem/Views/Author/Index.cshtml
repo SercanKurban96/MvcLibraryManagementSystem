@@ -1,0 +1,31 @@
+﻿@using MvcLibraryManagementSystem.Models.Entity
+@model List<TBLAUTHOR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        @*<th>Yazar ID</th>*@
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Yazarın Kitapları</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>@item.AuthorID</td>*@
+            <td>@item.AuthorName</td>
+            <td>@item.AuthorSurname</td>
+            @*<td><a href="/Author/AuthorDelete/@item.AuthorID/" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil","AuthorDelete",new {id = item.AuthorID}, new { @class = "btn btn-danger", onclick = "return confirm('Seçilen yazarı silmek istiyor musunuz?')" })</td>
+            <td><a href="/Author/AuthorBring/@item.AuthorID/" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Author/AuthorBooks/@item.AuthorID/" class="btn btn-default" style="background-color:lightseagreen">Yazarın Kitapları</a></td>
+        </tr>
+    }
+</table>
+<a href="/Author/AuthorAdd/" class="btn btn-primary">Yeni Yazar Ekle</a>

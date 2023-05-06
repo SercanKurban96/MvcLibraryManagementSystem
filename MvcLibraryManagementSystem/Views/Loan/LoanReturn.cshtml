@@ -1,0 +1,36 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLACTING
+@{
+    ViewBag.Title = "LoanReturn";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("LoanEdit", "Loan", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ActingID)
+        @Html.Label("Kitap Adı")
+        @Html.TextBoxFor(x => x.TBLBOOK.BookName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Adı")
+        @Html.TextBoxFor(x => x.TBLMEMBER.MemberName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Personel Adı")
+        @Html.TextBoxFor(x => x.TBLEMPLOYEE.EmployeeName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Alış Tarihi")
+        @Html.TextBoxFor(x => x.AcquisitionDate, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        @Html.Label("Normal İade Tarihi")
+        @Html.TextBoxFor(x => x.ReturnDate, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        @Html.Label("Üyenin Getirdiği Tarih")
+        <input type="text" class="form-control" name="BringMemberDate" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        @Html.Label("Geç Gelen Gün Sayısı")
+        <input type="text" class="form-control" id="val" value="@ViewBag.val" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color: #64d8ca; color: white">Ödünç Kitabı Geri Al</button>
+    </div>
+}

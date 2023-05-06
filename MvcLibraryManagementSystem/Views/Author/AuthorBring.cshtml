@@ -1,0 +1,27 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLAUTHOR
+@{
+    ViewBag.Title = "AuthorBring";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazar Güncelleme Sayfası</h2>
+@using (Html.BeginForm("AuthorEdit", "Author", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.AuthorID)
+        @Html.Label("Adı")
+        @Html.TextBoxFor(x => x.AuthorName, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Soyadı")
+        @Html.TextBoxFor(x => x.AuthorSurname, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Detaylar")
+        @Html.TextAreaFor(x => x.AuthorDetail, 5, 3, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yazar Bilgilerini Güncelle</button>
+    </div>
+}

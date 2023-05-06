@@ -1,0 +1,17 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLEMPLOYEE
+@{
+    ViewBag.Title = "EmployeeAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Personel Sayfası</h2>
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        @Html.Label("Personel Adı Soyadı")
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Personel Ekle</button>
+    </div>
+</form>

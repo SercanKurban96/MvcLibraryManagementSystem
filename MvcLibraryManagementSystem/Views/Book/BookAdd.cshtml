@@ -1,0 +1,43 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLBOOK
+@{
+    ViewBag.Title = "BookAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("BookAdd", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        <div style="margin-top:15px">
+            @Html.Label("Kitap Adı")
+            @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            @Html.Label("Kitap Kategori")
+            @Html.DropDownListFor(x => x.TBLCATEGORY.CategoryID, (List<SelectListItem>)ViewBag.vl1, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            @Html.Label("Yazar")
+            @Html.DropDownListFor(x => x.TBLAUTHOR.AuthorID, (List<SelectListItem>)ViewBag.vl2, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            @Html.Label("Basım Yılı")
+            @Html.TextBoxFor(x => x.PublicationYear, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            @Html.Label("Yayınevi")
+            @Html.TextBoxFor(x => x.PublishingHouse, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            @Html.Label("Sayfa Sayısı")
+            @Html.TextBoxFor(x => x.Page, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            @Html.Label("Kitap Görsel")
+            <input type="file" name="BookPhoto" />
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Kitap Ekle</button>
+        </div>
+        <input type="hidden" name="Status" value="True" />
+    </form>
+}

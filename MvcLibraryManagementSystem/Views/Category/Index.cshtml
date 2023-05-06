@@ -1,0 +1,31 @@
+﻿@using MvcLibraryManagementSystem.Models.Entity
+@*@model List<TBLCATEGORY>*@
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLCATEGORY>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+<table class="table table-striped">
+    <tr style="background-color:rgb(0, 255, 144)">
+        @*<th>Kategori ID</th>*@
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>@item.CategoryID</td>*@
+            <td>@item.CategoryName</td>
+            <td><a href="/Category/CategoryDelete/@item.CategoryID/" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/CategoryBring/@item.CategoryID/" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Category/CategoryAdd/" class="btn btn-primary">Yeni Kategori Ekle</a>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))

@@ -1,0 +1,49 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLMEMBER
+@{
+    ViewBag.Title = "MemberBring";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üye Güncelleme Sayfası</h2>
+@using (Html.BeginForm("MemberEdit", "Member", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.MemberID)
+        @Html.Label("Üye Adı")
+        @Html.TextBoxFor(x => x.MemberName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MemberName, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Üye Soyadı")
+        @Html.TextBoxFor(x => x.MemberSurname, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Mail Adresi")
+        @Html.TextBoxFor(x => x.MemberMail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Kullanıcı Adı")
+        @Html.TextBoxFor(x => x.MemberUsername, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Şifre")
+        @Html.TextBoxFor(x => x.MemberPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MemberPassword, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Görsel")
+        @Html.TextBoxFor(x => x.MemberPhotoUrl, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Telefon")
+        @Html.TextBoxFor(x => x.MemberTelephone, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Okul")
+        @Html.TextBoxFor(x => x.MemberSchool, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-warning">Üye Güncelle</button>
+    </div>
+}

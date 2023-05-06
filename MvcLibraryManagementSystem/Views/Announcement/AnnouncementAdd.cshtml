@@ -1,0 +1,25 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLANNOUNCEMENTS
+@{
+    ViewBag.Title = "AnnouncementAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Duyuru Sayfası</h2>
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        @Html.Label("Kategori")
+        @Html.TextBoxFor(x => x.AnnouncementCategory, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("İçerik")
+        @Html.TextBoxFor(x => x.AnnouncementContent, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.AnnouncementDate, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Duyuru Ekle</button>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLAUTHOR
+@{
+    ViewBag.Title = "AuthorAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Yazar Sayfası</h2>
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        @Html.Label("Adı")
+        @Html.TextBoxFor(x => x.AuthorName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x=>x.AuthorName)
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Soyadı")
+        @Html.TextBoxFor(x => x.AuthorSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AuthorSurname)
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Detaylar")
+        @Html.TextAreaFor(x => x.AuthorDetail,5,3, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni Yazar Ekle</button>
+    </div>
+</form>

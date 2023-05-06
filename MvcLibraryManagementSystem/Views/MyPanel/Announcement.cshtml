@@ -1,0 +1,23 @@
+﻿@using MvcLibraryManagementSystem.Models.Entity
+@model List<TBLANNOUNCEMENTS>
+@{
+    ViewBag.Title = "Announcement";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Duyurular</h2>
+<table class="table table-active">
+    <tr style="background-color:rgb(248, 250, 100)">
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>İçerik</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AnnouncementCategory</td>
+            <td>@Convert.ToDateTime(@item.AnnouncementDate).ToString("dd-MM-yyyy")</td>
+            <td>@item.AnnouncementContent</td>
+        </tr>
+    }
+</table>

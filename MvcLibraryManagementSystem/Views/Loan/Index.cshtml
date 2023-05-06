@@ -1,0 +1,32 @@
+﻿@using MvcLibraryManagementSystem.Models.Entity
+@model List<TBLACTING>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ödünç Kitap Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>İşlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>İade Al</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ActingID</td>
+            <td>@item.TBLBOOK.BookName</td>
+            <td>@item.TBLMEMBER.MemberName @item.TBLMEMBER.MemberSurname</td>
+            <td>@item.TBLEMPLOYEE.EmployeeName</td>
+            <td>@Convert.ToDateTime(@item.AcquisitionDate).ToString("dd-MM-yyyy")</td>
+            <td>@Convert.ToDateTime(@item.ReturnDate).ToString("dd-MM-yyyy")</td>
+            <td><a href="/Loan/LoanReturn/@item.ActingID/" class="btn btn-default" style="background-color:#64d8ca; color:white">Kitabı İade Et</a></td>
+        </tr>
+    }
+</table>

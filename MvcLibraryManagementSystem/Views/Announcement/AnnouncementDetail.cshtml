@@ -1,0 +1,25 @@
+﻿@model MvcLibraryManagementSystem.Models.Entity.TBLANNOUNCEMENTS
+@{
+    ViewBag.Title = "AnnouncementDetail";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Duyuru Güncelleme Sayfası</h2>
+@using (Html.BeginForm("AnnouncementEdit", "Announcement", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.AnnouncementID)
+        @Html.Label("Kategori")
+        @Html.TextBoxFor(x => x.AnnouncementCategory, new { @class = "form-control" })
+        <br />
+        @Html.Label("İçerik")
+        @Html.TextBoxFor(x => x.AnnouncementContent, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.AnnouncementDate, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
