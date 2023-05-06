@@ -2724,6 +2724,7 @@
     <Content Include="weberror\fonts\fontawesome-webfont.woff" />
     <Content Include="weberror\fonts\fontawesome-webfont.woff2" />
     <Content Include="weberror\fonts\FontAwesome.otf" />
+    <Content Include="Views\Messages\MessageDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

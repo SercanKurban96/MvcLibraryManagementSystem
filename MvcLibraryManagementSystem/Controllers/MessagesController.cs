@@ -18,6 +18,17 @@ namespace MvcLibraryManagementSystem.Controllers
             return View(messages);
         }
 
+        public ActionResult MessageDetail(int id)
+        {
+            var values = db.TBLMESSAGES.Where(x => x.MessageID == id).ToList();
+            var mail = (string)Session["Mail"].ToString();
+            var incomingCount = db.TBLMESSAGES.Count(x => x.Receiver == mail).ToString();
+            ViewBag.v1 = incomingCount;
+            var outgoingCount = db.TBLMESSAGES.Count(x => x.Sender == mail).ToString();
+            ViewBag.v2 = outgoingCount;
+            return View(values);
+        }
+
         public ActionResult OutgoingMessages()
         {
             var membermail = (string)Session["Mail"].ToString();

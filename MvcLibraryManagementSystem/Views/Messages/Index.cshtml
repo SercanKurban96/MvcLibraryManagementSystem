@@ -84,12 +84,12 @@
                                             </div>
                                         </td>
                                         <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                        <td class="mailbox-name"><a href="read-mail.html">@item.Sender</a></td>
+                                        <td class="mailbox-name"><a href="/Messages/MessageDetail/@item.MessageID">@item.Sender</a></td>
                                         <td class="mailbox-subject">
                                             <b>@item.Subject</b>
                                         </td>
                                         <td class="mailbox-attachment"></td>
-                                        <td class="mailbox-date">@item.MessageDate</td>
+                                        <td class="mailbox-date">@Convert.ToDateTime(@item.MessageDate).ToShortDateString()</td>
                                     </tr>
                                     }
                                 </tbody>
